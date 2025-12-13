@@ -39,42 +39,42 @@ body{
   .resume-section{ padding: 4.5rem 3rem; }
 }
 
-/* Sidebar Nav container */
-.sidebar-nav {
-  background-color: #0f2f3a; /* dark teal / blue */
-  border-radius: 0;         /* straight corners */
+/* Sidebar */
+.sidebar-nav{
+  background:#0f2f3a;
+  box-shadow:none;
 }
 
-/* Center nav items */
-#sideNav .navbar-nav{
-  align-items: stretch;
+/* Profile image */
+.profile-img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+  margin:auto;
+  border:3px solid rgba(255,255,255,.2);
 }
+
+/* Nav links */
 #sideNav .nav-link{
-  text-align: center;
+  color:#cfd8dc;
+  text-align:center;
+  padding:12px;
+  letter-spacing:.1em;
+  font-weight:700;
 }
 
-/* Sidebar links */
-.sidebar-nav .nav-link {
-  color: #cfd8dc;           /* soft light text */
-  padding: 14px 16px;
-  border-radius: 0;         /* straight corners */
-  transition: all 0.25s ease;
-  font-weight: 600;
-  letter-spacing: .06em;
+#sideNav .nav-link:hover{
+  background:rgba(255,255,255,.1);
+  color:#fff;
 }
 
-/* Hover effect */
-.sidebar-nav .nav-link:hover {
-  background-color: #144a5a;
-  color: #ffffff;
+#sideNav .nav-link.active{
+  background:var(--accent);
+  color:#fff;
 }
 
-/* Active / selected state (stays highlighted) */
-.sidebar-nav .nav-link.active,
-.sidebar-nav .nav-link:focus {
-  background-color: #1b6f6d; /* teal green */
-  color: #ffffff;
-}
 
 /* Remove Bootstrap focus outline */
 .sidebar-nav .nav-link:focus { box-shadow: none; }
