@@ -98,10 +98,18 @@ body{
 /* Sections */
 .resume-section{
   padding: 3.75rem 1.25rem;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
+
 @media (min-width: 992px){
-  .resume-section{ padding: 4.75rem 3rem; }
+  .resume-section{
+    padding: 4.75rem 3rem;
+  }
 }
+
 
 /* Headings */
 h0{
