@@ -14,6 +14,43 @@
 
   <!-- Your theme -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Quick theme overrides (color) -->
+  <style>
+    :root{
+      /* Change this accent to whatever you want */
+      --accent: #2F6F6D;     /* teal */
+      --accent-2: #3F5E9A;   /* blue */
+    }
+
+    /* Use accent for links + pills + chips hover feeling */
+    .link-primary{ color: var(--accent) !important; }
+    .link-primary:hover{ color: var(--accent-2) !important; }
+
+    /* Bigger About social icons */
+    .about-icons a{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      border: 1px solid rgba(31,41,51,.12);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 10px 22px rgba(31,41,51,.08);
+      margin-right: 10px;
+      text-decoration: none;
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .about-icons a:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }
+    .about-icons i{
+      font-size: 1.55rem; /* increase icon size */
+      color: var(--accent);
+    }
+  </style>
 </head>
 
 <body id="page-top">
@@ -67,19 +104,22 @@
             and <strong>organic electrosynthesis</strong> with applications in <strong>Power-to-X</strong> and sustainable chemistry.
           </p>
 
-          <div class="d-flex flex-wrap gap-2">
-          <a href="https://www.linkedin.com/in/sonam-gyaljen-tamang/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-        <a href="https://orcid.org/0000-0003-1967-434X" target="_blank" rel="noreferrer" aria-label="ORCID">
-          <i class="fa-brands fa-orcid"></i>
-        </a>
-        <a href="https://scholar.google.com/citations?user=nJb9cxoAAAAJ" target="_blank" rel="noreferrer" aria-label="Google Scholar">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </a>
+          <!-- Bigger icons -->
+          <div class="about-icons mb-3">
+            <a href="https://www.linkedin.com/in/sonam-gyaljen-tamang/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://orcid.org/0000-0003-1967-434X" target="_blank" rel="noreferrer" aria-label="ORCID">
+              <i class="fa-brands fa-orcid"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?user=nJb9cxoAAAAJ" target="_blank" rel="noreferrer" aria-label="Google Scholar">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </a>
           </div>
-        <a class="btn btn-primary" href="files/Sonam_Tamang_CV.pdf" download>Download CV (PDF)</a>
+
+          <a class="btn btn-primary" href="files/Sonam_Tamang_CV.pdf" download>Download CV (PDF)</a>
         </div>
+      </div>
     </section>
 
     <hr class="m-0">
@@ -94,12 +134,10 @@
             <div class="subheading mb-1">Research Associate</div>
             <h3 class="h4 mb-1">Karlsruhe Institute of Technology (KIT)</h3>
             <div class="text-muted">Karlsruhe, Germany</div>
-
             <ul class="mt-3 mb-3">
               <li>Microkinetic analysis of anodic oxidation of methoxylation of hydrocarbons</li>
               <li>Laboratory instruction on electrolysis</li>
             </ul>
-
             <div>
               <span class="pill">Power-to-X</span>
               <span class="pill">Organic electrosynthesis</span>
@@ -107,7 +145,6 @@
               <span class="pill">Raman spectroscopy</span>
             </div>
           </div>
-
           <div class="text-md-end">
             <span class="date">10/2023 – Present</span>
           </div>
@@ -119,13 +156,11 @@
           <div>
             <div class="subheading mb-1">Fraunhofer IGB</div>
             <div class="text-muted">Stuttgart, Germany</div>
-
             <ul class="mt-3 mb-3">
               <li>Performing an adsorption experiment</li>
               <li>Preparing and performing a shadowgraph experiment for various samples</li>
               <li>Assisting the department of interfacial engineering and material science (80% lab / 20% office)</li>
             </ul>
-
             <div>
               <span class="pill">Origin</span>
               <span class="pill">Adsorption</span>
@@ -133,7 +168,6 @@
               <span class="pill">Material Science</span>
             </div>
           </div>
-
           <div class="text-md-end">
             <span class="date">12/2022 – 03/2023</span>
           </div>
@@ -146,14 +180,12 @@
             <div class="subheading mb-1">Student Assistant</div>
             <h3 class="h4 mb-1">SRH Hochschule Heidelberg</h3>
             <div class="text-muted">Heidelberg, Germany</div>
-
             <ul class="mt-3 mb-3">
               <li>Research assistant on plasma technology as AOPs for micropollutant removal (methylene blue, carbamazepine)</li>
               <li>Application of humic substance for micropollutant and heavy metal removal</li>
               <li>Image processing of microplastics and dead/alive microorganism</li>
               <li>Supported digital ideas on the Democratia-Aqua-Technica project</li>
             </ul>
-
             <div>
               <span class="pill">Micropollutants</span>
               <span class="pill">MS Projects</span>
@@ -166,7 +198,6 @@
               <span class="pill">Plasma technology</span>
             </div>
           </div>
-
           <div class="text-md-end">
             <span class="date">06/2021 – 10/2022</span>
           </div>
@@ -186,7 +217,6 @@
             <div class="subheading mb-1">PhD Candidate — Electrochemical Engineering Technology</div>
             <h3 class="h4 mb-1">Karlsruhe Institute of Technology (KIT)</h3>
             <div class="text-muted">Heidelberg, Germany</div>
-
             <div class="mt-3">
               <span class="pill">MATLAB simulation</span>
               <span class="pill">Reaction kinetics</span>
@@ -197,7 +227,6 @@
               <span class="pill">Power-to-X</span>
             </div>
           </div>
-
           <div class="text-md-end">
             <span class="date">2023 – Present</span>
           </div>
@@ -210,7 +239,6 @@
             <div class="subheading mb-1">Master’s in Water Technology</div>
             <h3 class="h4 mb-1">SRH Hochschule Heidelberg</h3>
             <div class="text-muted">Heidelberg, Germany</div>
-
             <div class="mt-3">
               <span class="pill">Environmental law</span>
               <span class="pill">Water Framework Directive</span>
@@ -227,7 +255,6 @@
               <span class="pill">Solid waste management</span>
             </div>
           </div>
-
           <div class="text-md-end">
             <span class="date">2021 – 2023</span>
           </div>
@@ -240,7 +267,6 @@
             <div class="subheading mb-1">Bachelor of Electrical Engineering</div>
             <h3 class="h4 mb-1">Kathmandu Engineering College</h3>
             <div class="text-muted">Kalimati, Kathmandu</div>
-
             <div class="mt-3">
               <span class="pill">MATLAB / Simulink</span>
               <span class="pill">Power electronics</span>
@@ -251,7 +277,6 @@
               <span class="pill">High voltage engineering</span>
             </div>
           </div>
-
           <div class="text-md-end">
             <span class="date">2014 – 2018</span>
           </div>
@@ -261,14 +286,14 @@
 
     <hr class="m-0">
 
-    <!-- Projects -->
+    <!-- Projects: force 3x1 (stacked) -->
     <section class="resume-section" id="projects">
       <h2 class="mb-3">Selected Projects</h2>
       <p class="lead-muted mb-4">A few projects across research and applied environmental engineering.</p>
 
       <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="section-card h-100">
+        <div class="col-12">
+          <div class="section-card">
             <h3 class="h4 mb-2">Master’s Thesis — PFAS/PFCs groundwater treatment</h3>
             <p class="text-muted">
               Atmospheric plasma technology for PFAS/PFCs-contaminated groundwater (Fraunhofer IGB, Stuttgart).
@@ -281,8 +306,8 @@
           </div>
         </div>
 
-        <div class="col-lg-4">
-          <div class="section-card h-100">
+        <div class="col-12">
+          <div class="section-card">
             <h3 class="h4 mb-2">YIP-Aqua-I — Wetland & filtration concept</h3>
             <p class="text-muted">
               Proposed an initial wetland + filtration design (UNIVA Mexico & SRH Heidelberg).
@@ -295,8 +320,8 @@
           </div>
         </div>
 
-        <div class="col-lg-4">
-          <div class="section-card h-100">
+        <div class="col-12">
+          <div class="section-card">
             <h3 class="h4 mb-2">Microplastics degradation via AOPs</h3>
             <p class="text-muted">
               Compared UV/H₂O₂, Ozone/H₂O₂, and non-thermal plasma for LDPE microplastic degradation.
@@ -357,7 +382,6 @@
             <h3 class="h5 mb-1">SRH Stipendium Award</h3>
             <div class="text-muted">SRH Hochschule Heidelberg</div>
           </div>
-
           <div class="text-md-end">
             <span class="date">Oct 2021</span>
           </div>
@@ -375,13 +399,10 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Close the mobile menu after clicking a link
     document.querySelectorAll('#navbarSupportedContent .nav-link').forEach(link => {
       link.addEventListener('click', () => {
         const nav = document.getElementById('navbarSupportedContent');
-        if (nav.classList.contains('show')) {
-          new bootstrap.Collapse(nav).toggle();
-        }
+        if (nav.classList.contains('show')) new bootstrap.Collapse(nav).toggle();
       });
     });
   </script>
