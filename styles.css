@@ -10,9 +10,9 @@
   --white:#ffffff;
   --white-soft:rgba(255,255,255,.86);
   --muted:rgba(11,31,38,.65);
-  --border:rgba(11,31,38,.12);
 }
 
+/* Base */
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 
@@ -23,19 +23,20 @@ body{
   color:var(--text);
 }
 
-/* Desktop layout */
+/* ===== SIDEBAR WIDTH + FULL HEIGHT ===== */
 @media (min-width: 992px){
-  body{ padding-left: 270px; }
+  body{ padding-left: 300px; }   /* wider */
   #sideNav{
-    width: 270px;
+    width: 300px;                /* wider */
     position: fixed;
     top: 0; left: 0;
-    height: 100vh;
+    height: 100vh;               /* full height */
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
   }
 }
 
-/* Sidebar */
 .sidebar-nav{
   background: var(--teal) !important;
   border: none !important;
@@ -43,48 +44,24 @@ body{
   border-radius: 0 !important;
 }
 
-/* ===== SIDEBAR FULL HEIGHT ===== */
-@media (min-width: 992px){
-  body{
-    padding-left: 270px;
-  }
-
-  #sideNav{
-    width: 270px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;              /* FULL HEIGHT */
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-/* Sidebar base */
-.sidebar-nav{
-  background: var(--teal);
-  border: none;
-  box-shadow: none;
-}
-
-/* Ensure nav fills vertical space */
 #sideNav .container-fluid{
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
-/* Push nav links toward center if desired */
 #sideNav .navbar-collapse{
   flex-grow: 1;
   display: flex;
   align-items: center;
 }
 
-/* ===== PROFILE IMAGE ===== */
+/* Profile image */
 .profile-img{
-  width: 155px;
-  height: 155px;
+  width: 165px;
+  height: 165px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid rgba(255,255,255,.18);
@@ -92,29 +69,26 @@ body{
   margin: 0 auto 18px;
 }
 
-/* ===== NAV LINKS — TEXT ONLY (NO BOX EVER) ===== */
+/* ===== NAV LINKS (TEXT ONLY HOVER, NO BOX) ===== */
 #sideNav .nav-link{
-  background: transparent !important;   /* kill Bootstrap bg */
+  background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 
   color: rgba(255,255,255,.78);
   text-align: center;
-  padding: 8px 0;                        /* vertical rhythm only */
+  padding: 8px 0;
   font-weight: 800;
   letter-spacing: .12em;
   text-transform: uppercase;
-
   transition: color .2s ease;
 }
 
-/* Hover = TEXT ONLY */
 #sideNav .nav-link:hover{
   color: #ffffff;
   background: transparent !important;
 }
 
-/* Active = TEXT ONLY (underline or weight) */
 #sideNav .nav-link.active{
   color: #ffffff;
   text-decoration: underline;
@@ -123,11 +97,7 @@ body{
   background: transparent !important;
 }
 
-/* Remove focus glow */
-#sideNav .nav-link:focus{
-  box-shadow: none;
-}
-
+#sideNav .nav-link:focus{ box-shadow:none; }
 
 /* Sections */
 .resume-section{
@@ -163,74 +133,22 @@ h2{
 }
 .text-muted{ color: var(--muted) !important; }
 
-/* Cards: keep square (no curves) */
+/* ===== REMOVE GREY BOXES: cards become colorless ===== */
 .section-card{
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 0;
-  padding: 18px;
+  background: transparent;      /* no grey/white box */
+  border: none;                 /* no border */
+  border-radius: 0;             /* no curves */
+  padding: 0;                   /* no padding box feel */
   box-shadow: none;
 }
 
-/* Dates: plain */
+/* Dates */
 .date{
   background: transparent;
   border: none;
   padding: 0;
   font-weight: 400;
   color: var(--muted);
-}
-
-/* About icons */
-.about-icons{
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.about-icons a{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-
-  /* no curves */
-  border-radius: 0;
-
-  border: 1px solid var(--border);
-  background: #fff;
-  text-decoration: none;
-  transition: background-color .18s ease, color .18s ease;
-}
-.about-icons i{
-  font-size: 1.7rem;
-  color: var(--teal-active);
-}
-.about-icons a:hover{
-  background: var(--teal-hover);
-}
-.about-icons a:hover i{
-  color: #fff;
-}
-
-/* Buttons: square */
-.btn{ border-radius: 0 !important; }
-
-.btn-teal{
-  background: var(--teal-active) !important;
-  border: 1px solid rgba(0,0,0,.08) !important;
-  color: #fff !important;
-}
-.btn-teal:hover{
-  background: var(--teal-hover) !important;
-}
-
-/* Tools icons bigger */
-#skills .list-inline-item i{
-  font-size: 1.45rem;
-  vertical-align: -2px;
-  color: var(--teal-active);
 }
 
 /* Links */
@@ -242,6 +160,98 @@ h2{
   color: var(--teal-hover) !important;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* ===== ABOUT ICONS (already like LinkedIn style) ===== */
+.about-icons{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.about-icons a.icon-btn{
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  background: #fff;
+  border: 1px solid rgba(11,31,38,.12);
+  text-decoration: none;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.about-icons a.icon-btn:hover{
+  background: var(--teal-hover);
+}
+
+.about-icons a.icon-btn i{
+  font-size: 1.7rem;
+  color: var(--teal-active);
+}
+
+.about-icons a.icon-btn:hover i{
+  color: #fff;
+}
+
+/* Buttons */
+.btn{ border-radius: 0 !important; }
+
+.btn-teal{
+  background: var(--teal-active) !important;
+  border: 1px solid rgba(0,0,0,.08) !important;
+  color: #fff !important;
+}
+.btn-teal:hover{
+  background: var(--teal-hover) !important;
+}
+
+/* ===== TOOLS ICONS: make them like About icons ===== */
+.tools-icons{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.tools-icons .tool{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+}
+
+.tools-icons .tool .tool-icon{
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  background: #fff;
+  border: 1px solid rgba(11,31,38,.12);
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.tools-icons .tool .tool-icon i{
+  font-size: 1.7rem;            /* match About icon size */
+  color: var(--teal-active);
+}
+
+.tools-icons .tool:hover .tool-icon{
+  background: var(--teal-hover);
+}
+
+.tools-icons .tool:hover .tool-icon i{
+  color: #fff;
+}
+
+.tools-icons .tool span{
+  color: var(--text);
+  font-weight: 650;
 }
 
 /* Footer */
