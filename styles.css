@@ -43,12 +43,45 @@ body{
   border-radius: 0 !important;
 }
 
-#sideNav .container-fluid{
-  padding-top: 18px;
-  padding-bottom: 18px;
+/* ===== SIDEBAR FULL HEIGHT ===== */
+@media (min-width: 992px){
+  body{
+    padding-left: 270px;
+  }
+
+  #sideNav{
+    width: 270px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;              /* FULL HEIGHT */
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-/* Profile image */
+/* Sidebar base */
+.sidebar-nav{
+  background: var(--teal);
+  border: none;
+  box-shadow: none;
+}
+
+/* Ensure nav fills vertical space */
+#sideNav .container-fluid{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Push nav links toward center if desired */
+#sideNav .navbar-collapse{
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== PROFILE IMAGE ===== */
 .profile-img{
   width: 155px;
   height: 155px;
@@ -56,31 +89,33 @@ body{
   border-radius: 50%;
   border: 3px solid rgba(255,255,255,.18);
   display: block;
-  margin: 0 auto 14px;
+  margin: 0 auto 18px;
 }
 
-/* ===== NAV LINKS: TEXT ONLY HOVER/ACTIVE ===== */
+/* ===== NAV LINKS — TEXT ONLY (NO BOX EVER) ===== */
 #sideNav .nav-link{
-  color: var(--white-soft);
-  text-align: center;
-  padding: 10px 14px;
-  font-weight: 800;
-  letter-spacing: .10em;
-  border-radius: 0 !important;
+  background: transparent !important;   /* kill Bootstrap bg */
+  border: none !important;
+  box-shadow: none !important;
 
-  /* Important: no background box */
-  background: transparent !important;
-  transition: color .18s ease, opacity .18s ease;
+  color: rgba(255,255,255,.78);
+  text-align: center;
+  padding: 8px 0;                        /* vertical rhythm only */
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  transition: color .2s ease;
 }
 
+/* Hover = TEXT ONLY */
 #sideNav .nav-link:hover{
-  /* text only */
   color: #ffffff;
   background: transparent !important;
 }
 
+/* Active = TEXT ONLY (underline or weight) */
 #sideNav .nav-link.active{
-  /* text only active */
   color: #ffffff;
   text-decoration: underline;
   text-underline-offset: 6px;
@@ -88,7 +123,11 @@ body{
   background: transparent !important;
 }
 
-#sideNav .nav-link:focus{ box-shadow:none; }
+/* Remove focus glow */
+#sideNav .nav-link:focus{
+  box-shadow: none;
+}
+
 
 /* Sections */
 .resume-section{
