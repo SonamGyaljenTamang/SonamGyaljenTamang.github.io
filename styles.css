@@ -45,39 +45,40 @@ code{ color: var(--accent-2); }
   .resume-section{ padding: 4.5rem 3rem; }
 }
 
-/* Sidebar */
-#sideNav{
-  min-height: 100vh;
-  background: linear-gradient(180deg, rgba(122,148,134,.92), rgba(108,132,163,.88));
-  border-right: 1px solid rgba(255,255,255,.18);
+/* Sidebar Nav container */
+.sidebar-nav {
+  background-color: #0f2f3a; /* dark teal / blue */
+  border-radius: 0;         /* straight corners */
 }
 
-#sideNav .navbar-brand{
-  font-weight: 800;
-  letter-spacing: .4px;
-  padding: 1.25rem 1rem;
+/* Sidebar links */
+.sidebar-nav .nav-link {
+  color: #cfd8dc;           /* soft light text */
+  text-align: center;
+  padding: 14px 16px;
+  border-radius: 0;         /* straight corners */
+  transition: all 0.25s ease;
+  font-weight: 500;
 }
 
-#sideNav .nav-link{
-  font-weight: 800;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  opacity: .92;
-}
-#sideNav .nav-link:hover{
-  opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+/* Hover effect */
+.sidebar-nav .nav-link:hover {
+  background-color: #144a5a;
+  color: #ffffff;
 }
 
-.profile-img{
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 6px solid rgba(255,255,255,.25);
-  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+/* Active / selected state (stays highlighted) */
+.sidebar-nav .nav-link.active,
+.sidebar-nav .nav-link:focus {
+  background-color: #1b6f6d; /* teal green */
+  color: #ffffff;
 }
+
+/* Optional: remove Bootstrap focus outline */
+.sidebar-nav .nav-link:focus {
+  box-shadow: none;
+}
+
 
 /* Headings */
 h1{
