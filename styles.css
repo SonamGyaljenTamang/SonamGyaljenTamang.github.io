@@ -237,7 +237,7 @@ h2{
     z-index: 1050;
     width: 100%;
     height: auto;
-    background: var(--teal) !important;
+    background: rgba(0, 128, 128, 0.7) !important; /* 70% opacity */
   }
 
   #sideNav .container-fluid{
