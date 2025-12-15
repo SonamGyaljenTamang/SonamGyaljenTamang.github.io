@@ -22,9 +22,10 @@ body{
   color:var(--text);
 }
 
-/* ===== SIDEBAR: width + height adjusted ===== */
+/* ===== SIDEBAR (DESKTOP) ===== */
 @media (min-width: 992px){
   body{ padding-left: 320px; }
+
   #sideNav{
     width: 320px;
     position: fixed;
@@ -33,6 +34,7 @@ body{
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    z-index: 1000;
   }
 }
 
@@ -53,7 +55,7 @@ body{
 #sideNav .navbar-collapse{
   flex-grow: 1;
   display: flex;
-  align-items: center; /* vertically balanced */
+  align-items: center;
 }
 
 /* Profile photo */
@@ -67,7 +69,7 @@ body{
   margin: 0 auto 18px;
 }
 
-/* Nav links: TEXT ONLY hover/active */
+/* Nav links */
 #sideNav .nav-link{
   background: transparent !important;
   border: none !important;
@@ -82,12 +84,10 @@ body{
   transition: color .2s ease;
 }
 
-#sideNav .nav-link:hover{
-  color: #ffffff;
-}
+#sideNav .nav-link:hover{ color:#fff; }
 
 #sideNav .nav-link.active{
-  color: #ffffff;
+  color:#fff;
   text-decoration: underline;
   text-underline-offset: 7px;
   text-decoration-thickness: 2px;
@@ -105,13 +105,13 @@ body{
   }
 }
 
-
 /* Headings */
 h0{
   font-size: clamp(50px, 6.2vw, 56px);
   margin: 0 0 10px;
   letter-spacing: -0.4px;
   font-weight: 900;
+  display:block;
 }
 
 h1{
@@ -137,21 +137,21 @@ h2{
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.75;
-    text-align: justify;
+  text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
 }
+
 .text-muted{ color: var(--muted) !important; }
 
-/* ===== spacing between content blocks ===== */
+/* spacing between content blocks */
 .section-card{
   background: transparent;
   border: none;
   border-radius: 0;
   padding: 0;
   box-shadow: none;
-
-  margin: 22px 0;   /* MORE SPACE between blocks */
+  margin: 22px 0;
 }
 
 .section-card ul{
@@ -179,7 +179,7 @@ h2{
   text-underline-offset: 3px;
 }
 
-/* ===== ICONS: SAME SIZE, COLORLESS, NO BORDER/BOX ===== */
+/* ICONS */
 .about-icons,
 .tools-icons{
   display: flex;
@@ -194,7 +194,7 @@ h2{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10;
+  padding: 10px;
 
   background: transparent !important;
   border: none !important;
@@ -203,16 +203,14 @@ h2{
 }
 
 .icon-btn i{
-  font-size: 2.6rem;               /* same size everywhere */
+  font-size: 2.6rem;
   color: var(--teal-active);
   transition: color .18s ease;
 }
 
-.icon-btn:hover i{
-  color: var(--teal-hover);
-}
+.icon-btn:hover i{ color: var(--teal-hover); }
 
-/* Download CV link: main color, no underline */
+/* Download CV link */
 .cv-link{
   color: var(--text);
   text-decoration: none !important;
@@ -230,42 +228,78 @@ h2{
   text-align: center;
 }
 
-/* Mobile */
-<script>
-  (function () {
-    const navCollapse = document.getElementById("navbarSupportedContent");
-    if (!navCollapse) return;
+/* ================= MOBILE: hamburger + slide-in drawer ================= */
+@media (max-width: 920px){
 
-    // When menu opens/closes (Bootstrap collapse events)
-    navCollapse.addEventListener("shown.bs.collapse", () => {
-      document.body.classList.add("nav-open");
-    });
-    navCollapse.addEventListener("hidden.bs.collapse", () => {
-      document.body.classList.remove("nav-open");
-    });
+  #sideNav{
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    width: 100%;
+    height: auto;
+    background: var(--teal) !important;
+  }
 
-    // Close when tapping backdrop
-    document.addEventListener("click", (e) => {
-      if (!document.body.classList.contains("nav-open")) return;
+  #sideNav .container-fluid{
+    padding: 12px 14px;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
 
-      const panel = navCollapse;
-      const toggler = document.querySelector("#sideNav .navbar-toggler");
+  /* hamburger */
+  #sideNav .navbar-toggler{
+    border: 0;
+    box-shadow: none !important;
+    padding: 8px 10px;
+  }
+  #sideNav .navbar-toggler:focus{ box-shadow:none; }
 
-      // click outside panel & not on toggler
-      if (!panel.contains(e.target) && !toggler.contains(e.target)) {
-        const api = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
-        api.hide();
-      }
-    });
+  /* drawer panel */
+  #sideNav .navbar-collapse{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(320px, 85vw);   /* ✅ not full screen */
+    background: var(--teal);
+    padding: 80px 18px 18px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
-    // ESC to close
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && document.body.classList.contains("nav-open")) {
-        const api = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
-        api.hide();
-      }
-    });
-  })();
-</script>
+    transform: translateX(-105%);
+    transition: transform 260ms ease;
+    z-index: 1060;
 
+    align-items: flex-start; /* override desktop centering */
+  }
 
+  #sideNav .navbar-collapse.show{
+    transform: translateX(0);
+  }
+
+  #sideNav .nav-link{
+    text-align: left;
+    padding: 12px 8px;
+  }
+
+  /* backdrop */
+  body::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease;
+    z-index: 1055;
+  }
+  body.nav-open::before{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.nav-open{
+    overflow: hidden;
+  }
+}
